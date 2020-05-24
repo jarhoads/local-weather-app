@@ -11,7 +11,7 @@ import { WeatherService } from '../weather/weather.service';
 })
 export class CitySearchComponent implements OnInit {
 
-  @Output() searchEvent = new EventEmitter<string>()
+  @Output() searchEvent = new EventEmitter<string>();
 
   search = new FormControl('', [Validators.minLength(2)]);
 

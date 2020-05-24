@@ -48,10 +48,10 @@ export class WeatherService implements IWeatherService {
     uriParams =
       typeof search === 'string'
         ? (uriParams = `q=${search}`)
-        : (uriParams = `zip=${search}`)
+        : (uriParams = `zip=${search}`);
 
     if (country) {
-      uriParams = `${uriParams},${country}`
+      uriParams = `${uriParams},${country}`;
     }
 
     return this.getCurrentWeatherHelper(uriParams);
@@ -79,11 +79,11 @@ export class WeatherService implements IWeatherService {
       date: data.dt * 1000,
       image: `http://openweathermap.org/img/w/${data.weather[0].icon}.png`,
       temperature: this.convertKelvinToFahrenheit(data.main.temp),
-      description: data.weather[0].description,
-    }
+      description: data.weather[0].description
+    };
   }
 
   private convertKelvinToFahrenheit(kelvin: number): number {
-    return (kelvin * 9) / 5 - 459.67
+    return (kelvin * 9) / 5 - 459.67;
   }
 }
